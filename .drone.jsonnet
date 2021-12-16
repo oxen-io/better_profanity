@@ -4,8 +4,6 @@ local distro_docker = 'registry.oxen.rocks/lokinet-ci-debian-' + distro + '-buil
 
 local apt_get_quiet = 'apt-get -o=Dpkg::Use-Pty=0 -q';
 
-local repo_suffix = '/staging';  // can be /beta or /staging for non-primary repo deps
-
 local deb_pipeline(image, buildarch='amd64', debarch='amd64', jobs=6) = {
   kind: 'pipeline',
   type: 'docker',
@@ -19,8 +17,6 @@ local deb_pipeline(image, buildarch='amd64', debarch='amd64', jobs=6) = {
       commands: [
         'echo "Building on ${DRONE_STAGE_MACHINE}"',
         'echo "man-db man-db/auto-update boolean false" | debconf-set-selections',
-        'echo deb http://deb.oxen.io' + repo_suffix + ' ' + distro + ' main >/etc/apt/sources.list.d/oxen.list',
-        'cp contrib/deb.oxen.io.gpg /etc/apt/trusted.gpg.d',
         apt_get_quiet + ' update',
         apt_get_quiet + ' install -y eatmydata',
         'eatmydata ' + apt_get_quiet + ' dist-upgrade -y',
