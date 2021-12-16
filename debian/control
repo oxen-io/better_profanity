@@ -8,7 +8,7 @@ Build-Depends:
     dh-python
 Standards-Version: 4.4.1
 Section: python
-Homepage: https://github.com/oxen-io/oxen-pyoxenmq
+Homepage: https://github.com/snguyenthanh/better_profanity
 
 Package: python3-better-profanity
 Architecture: all
