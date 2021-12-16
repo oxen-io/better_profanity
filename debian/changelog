@@ -1,0 +1,5 @@
+pyoxenmq (0.6.1-1) sid; urgency=medium
+
+  * Initial packaging.
+
+ -- Jason Rhinelander <jason@imaginary.ca>  Thu, 16 Dec 2021 16:48:17 -0400
